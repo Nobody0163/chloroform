@@ -11,6 +11,8 @@ namespace Chloroform::Math {
 	}
 
 	Transform2D Transform2D::operator*(const Transform2D& other) const {
+		Vector2 new_offset = *this * other.offset;
+
 		Vector2 new_basis_x = Vector2(
 			this->basis_x.x * other.basis_x.x + this->basis_y.x * other.basis_x.y,
 			this->basis_x.y * other.basis_x.x + this->basis_y.y * other.basis_x.y
@@ -20,8 +22,6 @@ namespace Chloroform::Math {
 			this->basis_x.x * other.basis_y.x + this->basis_y.x * other.basis_y.y,
 			this->basis_x.y * other.basis_y.x + this->basis_y.y * other.basis_y.y
 		);
-
-		Vector2 new_offset = *this * other.offset;
 
 		return Transform2D(new_offset, new_basis_x, new_basis_y);
 	}
