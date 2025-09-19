@@ -1,6 +1,6 @@
 #include "entity.hpp"
 
-#include <bits/algorithmfwd.h>
+#include <algorithm>
 
 namespace Chloroform::Core {
 	Entity::Entity(std::vector<Entity*> children, std::vector<Component*> components) : parent(nullptr), children(children), components(components) {}
