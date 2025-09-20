@@ -14,6 +14,8 @@ namespace Chloroform::Core {
 
 		Entity(std::vector<Entity*> children = {}, std::vector<Component*> components = {});
 
+		virtual ~Entity() = default;
+
 		void AddChild(Entity* child);
 		void SetParent(Entity* parent);
 		void Ready();
