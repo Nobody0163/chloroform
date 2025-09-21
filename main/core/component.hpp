@@ -1,6 +1,7 @@
 #pragma once
 
 #include "event.hpp"
+#include "nlohmann/json.hpp"
 
 namespace Chloroform::Core {
 	class Entity;
@@ -13,5 +14,6 @@ namespace Chloroform::Core {
 		virtual void Update() = 0;
 		virtual void FixedUpdate() = 0;
 		virtual void HandleEvent(Event& event) = 0;
+		virtual nlohmann::json Serialize() const = 0;
 	};
 }

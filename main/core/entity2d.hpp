@@ -8,7 +8,7 @@ namespace Chloroform::Core {
 	public:
 		Math::Transform2D transform;
 
-		Entity2D(std::vector<Entity*> children = {}, std::vector<Component*> components = {}, Math::Transform2D transform = Math::Transform2D());
+		Entity2D(std::string name = "", std::vector<Entity*> children = {}, std::vector<Component*> components = {}, Math::Transform2D transform = Math::Transform2D());
 
 		Math::Transform2D GetGlobalTransform() const;
 	};

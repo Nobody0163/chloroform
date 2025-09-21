@@ -8,7 +8,7 @@ namespace Chloroform::Core {
 	public:
 		Math::Transform3D transform;
 
-		Entity3D(std::vector<Entity*> children = {}, std::vector<Component*> components = {}, Math::Transform3D transform = Math::Transform3D());
+		Entity3D(std::string name = "", std::vector<Entity*> children = {}, std::vector<Component*> components = {}, Math::Transform3D transform = Math::Transform3D());
 
 		Math::Transform3D GetGlobalTransform() const;
 	};

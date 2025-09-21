@@ -1,7 +1,7 @@
 #include "entity3d.hpp"
 
 namespace Chloroform::Core {
-	Entity3D::Entity3D(std::vector<Entity*> children, std::vector<Component*> components, Math::Transform3D transform) : Entity(children, components), transform(transform) {}
+	Entity3D::Entity3D(std::string name, std::vector<Entity*> children, std::vector<Component*> components, Math::Transform3D transform) : Entity(name, children, components), transform(transform) {}
 
 	Math::Transform3D Entity3D::GetGlobalTransform() const {
 		if (Entity3D* parent3d = dynamic_cast<Entity3D*>(this->parent)) {
