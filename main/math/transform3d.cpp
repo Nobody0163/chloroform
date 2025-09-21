@@ -41,4 +41,13 @@ namespace Chloroform::Math {
 		*this = (*this) * other;
 		return *this;
 	}
+
+	nlohmann::json Transform3D::Serialize() const {
+		nlohmann::json j;
+		j["offset"] = { this->offset.x, this->offset.y, this->offset.z };
+		j["basis_x"] = { this->basis_x.x, this->basis_x.y, this->basis_x.z };
+		j["basis_y"] = { this->basis_y.x, this->basis_y.y, this->basis_y.z };
+		j["basis_z"] = { this->basis_z.x, this->basis_z.y, this->basis_z.z };
+		return j;
+	}
 }

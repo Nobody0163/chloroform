@@ -30,4 +30,12 @@ namespace Chloroform::Math {
 		*this = *this * other;
 		return *this;
 	}
+
+	nlohmann::json Transform2D::Serialize() const {
+		nlohmann::json j;
+		j["offset"] = { this->offset.x, this->offset.y };
+		j["basis_x"] = { this->basis_x.x, this->basis_x.y };
+		j["basis_y"] = { this->basis_y.x, this->basis_y.y };
+		return j;
+	}
 }

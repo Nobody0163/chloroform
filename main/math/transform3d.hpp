@@ -1,6 +1,7 @@
 #pragma once
 
 #include "vector3.hpp"
+#include "nlohmann/json.hpp"
 
 namespace Chloroform::Math {
 	class Transform3D {
@@ -15,5 +16,6 @@ namespace Chloroform::Math {
 		Vector3 operator*(const Vector3& other) const;
 		Transform3D operator*(const Transform3D& other) const;
 		Transform3D& operator*=(const Transform3D& other);
+		nlohmann::json Serialize() const;
 	};
 }

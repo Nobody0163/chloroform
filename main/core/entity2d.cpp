@@ -10,4 +10,19 @@ namespace Chloroform::Core {
 
 		return this->transform;
 	}
+
+	nlohmann::json Entity2D::Serialize() const {
+		nlohmann::json j;
+		j["name"] = this->name;
+		j["components"] = nlohmann::json::array();
+		for (const Component* component : this->components) {
+			j["components"].push_back(component->Serialize());
+		}
+		j["children"] = nlohmann::json::array();
+		for (const Entity* child : this->children) {
+			j["children"].push_back(child->Serialize());
+		}
+		j["transform"] = this->transform.Serialize();
+		return j;
+	}
 }
