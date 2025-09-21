@@ -38,4 +38,12 @@ namespace Chloroform::Math {
 		j["basis_y"] = { this->basis_y.x, this->basis_y.y };
 		return j;
 	}
+
+	Transform2D Transform2D::Deserialize(const nlohmann::json& j) {
+		return Transform2D(
+			Vector2(j["offset"][0], j["offset"][1]),
+			Vector2(j["basis_x"][0], j["basis_x"][1]),
+			Vector2(j["basis_y"][0], j["basis_y"][1])
+		);
+	}
 }

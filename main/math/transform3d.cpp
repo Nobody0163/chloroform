@@ -50,4 +50,13 @@ namespace Chloroform::Math {
 		j["basis_z"] = { this->basis_z.x, this->basis_z.y, this->basis_z.z };
 		return j;
 	}
+
+	Transform3D Transform3D::Deserialize(const nlohmann::json& j) {
+		return Transform3D(
+			Vector3(j["offset"][0], j["offset"][1], j["offset"][2]),
+			Vector3(j["basis_x"][0], j["basis_x"][1], j["basis_x"][2]),
+			Vector3(j["basis_y"][0], j["basis_y"][1], j["basis_y"][2]),
+			Vector3(j["basis_z"][0], j["basis_z"][1], j["basis_z"][2])
+		);
+	}
 }

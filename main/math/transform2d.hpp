@@ -16,5 +16,6 @@ namespace Chloroform::Math {
 		Transform2D operator*(const Transform2D& other) const;
 		Transform2D& operator*=(const Transform2D& other);
 		nlohmann::json Serialize() const;
+		static Transform2D Deserialize(const nlohmann::json& j);
 	};
 }
