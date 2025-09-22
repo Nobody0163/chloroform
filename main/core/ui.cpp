@@ -13,11 +13,9 @@ namespace Chloroform::Core {
 		Math::Vector2 position;
 		if (UIContainer* parentContainer = dynamic_cast<UIContainer*>(this->parent)) {
 			position = parentContainer->GetChildPosition(this);
-		}
-		else if (UIElement* parentElement = dynamic_cast<UIElement*>(this->parent)) {
+		} else if (UIElement* parentElement = dynamic_cast<UIElement*>(this->parent)) {
 			position = parentElement->GetPosition() + this->top_left_offset + parentElement->GetSize() * this->top_left_anchor;
-		}
-		else {
+		} else {
 			position = this->top_left_offset;
 		}
 
@@ -33,11 +31,9 @@ namespace Chloroform::Core {
 		Math::Vector2 size;
 		if (UIContainer* parentContainer = dynamic_cast<UIContainer*>(this->parent)) {
 			size = parentContainer->GetChildSize(this);
-		}
-		else if (UIElement* parentElement = dynamic_cast<UIElement*>(this->parent)) {
+		} else if (UIElement* parentElement = dynamic_cast<UIElement*>(this->parent)) {
 			size = parentElement->GetSize() * (this->bottom_right_anchor - this->top_left_anchor) + this->bottom_right_offset - this->top_left_offset;
-		}
-		else {
+		} else {
 			size = this->bottom_right_offset - this->top_left_offset;
 		}
 
