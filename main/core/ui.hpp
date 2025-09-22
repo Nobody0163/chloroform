@@ -19,6 +19,7 @@ namespace Chloroform::Core {
 		Math::Vector2 GetPosition();
 		Math::Vector2 GetSize();
 		void InvalidateCaches();
+		nlohmann::json Serialize() const;
 	private:
 		std::optional<Math::Vector2> cached_position;
 		std::optional<Math::Vector2> cached_size;

@@ -76,4 +76,23 @@ namespace Chloroform::Core {
 		Engine::Instance().error_handler.ReportError(Error::WARN_UI_NO_CONTAINER_COMPONENT_HANDLED, "UIContainer \"" + this->name + "\" has no UIContainerComponent that handles child \"" + child->name + "\". Defaulting to zero size.");
 		return Math::Vector2();
 	}
+
+	nlohmann::json UIElement::Serialize() const {
+		nlohmann::json j = Entity::Serialize();
+		j["name"] = this->name;
+		j["components"] = nlohmann::json::array();
+		for (const Component* component : this->components) {
+			j["components"].push_back(component->Serialize());
+		}
+		j["children"] = nlohmann::json::array();
+		for (const Entity* child : this->children) {
+			j["children"].push_back(child->Serialize());
+		}
+		j["top_left_anchor"] = { this->top_left_anchor.x, this->top_left_anchor.y };
+		j["bottom_right_anchor"] = { this->bottom_right_anchor.x, this->bottom_right_anchor.y };
+		j["top_left_offset"] = { this->top_left_offset.x, this->top_left_offset.y };
+		j["bottom_right_offset"] = { this->bottom_right_offset.x, this->bottom_right_offset.y };
+		j["active"] = this->active;
+		return j;
+	}
 }
