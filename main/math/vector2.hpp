@@ -6,6 +6,7 @@ namespace Chloroform::Math {
 		double x;
 		double y;
 
+		Vector2() = default;
 		Vector2(double x, double y);
 
 		Vector2 operator+(const Vector2& other) const;
